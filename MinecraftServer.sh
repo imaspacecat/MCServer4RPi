@@ -1,22 +1,18 @@
 #! /usr/bin/bash
 #install Java 17 (required for 1.18+ servers)
 #get the file
-#cd $HOME/Downloads
-
+cd $HOME/Downloads
 Red=$'\e[1;31m'
-Green=$'\e[1;32m'
-Blue=$'\e[1;34m'
-
 wget https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.1%2B12/OpenJDK17U-jdk_arm_linux_hotspot_17.0.1_12.tar.gz
 #extract it
-echo "$Red extracting..."
+echo "$Red Extracting..."
 tar xzf OpenJDK17U-jdk_arm_linux_hotspot_17.0.1_12.tar.gz
 #move the extracted files to /usr/lib/jvm
 sudo mv jdk-17.0.1+12 /usr/lib/jvm/
 cd /usr/lib/jvm
 #add java to the update alternatives so you can change to other versions later if desired
 sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-16.0.2+7/bin/java 1131
-echo "$Red enter the number corresponding to Java 17"
+echo "$Red Enter the number corresponding to Java 17"
 sudo update-alternatives --config java
 #go to home directory and create folder to store all of the server related stuff
 cd $HOME
